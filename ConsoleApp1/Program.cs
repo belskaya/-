@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    class Program
+  public  class Program
     {
-        static void Main(string[] args)
+       public static void Main(string[] args)
         {
             Console.WriteLine("Введите первое слово: ");
             String slovo1 = Convert.ToString(Console.ReadLine());
@@ -17,12 +17,13 @@ namespace ConsoleApp1
             string stroka1 = "";
             string stroka2 = "";
             stroka1 = slovo1[0].ToString();
-            int i = 0;
-            while (i < slovo2.Length)
-            {
-                stroka2 = slovo2[i].ToString();
-                i++;
-            }
+            stroka2 = Zap_slova2_v_stroky(slovo2, stroka2);
+            Vivod(stroka1, stroka2);
+            Console.ReadLine();
+        }
+
+        public static void Vivod(string stroka1, string stroka2)
+        {
             if (stroka1 == stroka2)
             {
                 Console.WriteLine("Первая буква первого слова равна последней букве второго слова");
@@ -31,7 +32,19 @@ namespace ConsoleApp1
             {
                 Console.WriteLine("Первая буква первого слова не равна последней букве второго слова");
             }
-            Console.ReadLine();
         }
+
+        public static string Zap_slova2_v_stroky(string slovo2, string stroka2)
+        {
+            int i = 0;
+            while (i < slovo2.Length)
+            {
+                stroka2 = slovo2[i].ToString();
+                i++;
+            }
+
+            return stroka2;
+        }
+       
     }
 }
